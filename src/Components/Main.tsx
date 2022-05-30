@@ -10,8 +10,7 @@ export const Main:FC<MainProps> = ({children}) => {
   return (
     <Grid container 
           component='main'
-          mt={2}
-          spacing={2}
+          mt={14}
     >
       {children}
     </Grid>
