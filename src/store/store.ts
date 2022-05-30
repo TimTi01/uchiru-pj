@@ -1,7 +1,9 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit"
 import { dataAPI } from "../services/DataServices"
+import addedSlice from "../features/addedSlice"
 
-const rootReducer = combineReducers({
+export const rootReducer = combineReducers({
+    addedSlice,
     [dataAPI.reducerPath]: dataAPI.reducer
 })
 

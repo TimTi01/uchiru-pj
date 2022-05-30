@@ -3,18 +3,23 @@ import { Card, CardMedia, IconButton } from '@mui/material';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { IData } from '../services/DataServices';
+import { useAppDispatch, useAppSelector } from '../hooks/redux';
+import { addFavoriteCat } from '../features/addedSlice';
+
 
 interface ICardProps {
     cat: IData,
 }
 
 export const CardComponent:FC<ICardProps> = ({cat}) => {
-    const [like, setLike] = useState(false)
+    const dispatch = useAppDispatch()
 
-    const getId = () => {
+    const addDataHandler = () => {
         setLike(!like)
-        console.log(cat.id);
+        dispatch(addFavoriteCat(cat))
     }
+    
+    const [like, setLike] = useState(false)
 
     return (
         <Card elevation={0} sx={{position: 'relative',}}>
@@ -26,7 +31,7 @@ export const CardComponent:FC<ICardProps> = ({cat}) => {
                 }}
                 image={cat.url}
             />
-            <IconButton onClick={() => getId()}
+            <IconButton onClick={() => addDataHandler()}
                         sx={{    
                             position: 'absolute',
                             right: 0,
