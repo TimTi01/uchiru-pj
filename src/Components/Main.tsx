@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { Box } from '@mui/material'
+import {Grid } from '@mui/material'
 
 interface MainProps {
     children: React.ReactNode
@@ -8,17 +8,12 @@ interface MainProps {
 export const Main:FC<MainProps> = ({children}) => {
 
   return (
-    <Box component='main'
-            height='100vh'
-            display='flex'
-            flexWrap='wrap'
-            mt={5}
-            sx={{
-            justifyContent: 'center',
-            alignItems: 'center'
-            }}
+    <Grid container 
+          component='main'
+          mt={2}
+          spacing={2}
     >
-        {children}
-    </Box>
+      {children}
+    </Grid>
   )
 }
